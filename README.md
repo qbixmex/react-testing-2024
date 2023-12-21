@@ -97,6 +97,75 @@ parserOptions: {
 [AirBnB Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb)
 
 [AirBnB Typescript Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb-typescript)
+
+## 3. Testing Suite
+
+__Install "Vitest"__
+
+```bash
+# NPM
+> npm i --dev vitest
+
+# YARN
+> yarn add -D vitest
+
+# PNPM
+> pnpm add -D vitest
+```
+
+[Vitest Documentation](https://vitest.dev/)
+
+__Remove all content from:__ ```vite.config.ts```
+__and paste the following code:__
+
+```typescript
+/* eslint-disable import/no-extraneous-dependencies */
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.ts',
+    // you might want to disable it,
+    // if you don't have tests that rely on CSS
+    // since parsing CSS is slow
+    css: true,
+  },
+  server: {
+    port: 3000,
+    open: true,
+  },
+  preview: {
+    port: 3000,
+    open: true,
+  },
+});
+```
+
+__We need to update:__ ```tsconfig.json``` again:
+
+```json
+"include": [
+  "src",
+  ".eslintrc.cjs",
+  "vite.config.ts", // <-- Add this new line
+],
+```
+
+__Create Setup Tests File__
+
+```bash
+# Run in a terminal window
+> touch ./src/setupTests.ts
+```
+
 ## Run development mode
 
 ```bash
