@@ -4,7 +4,7 @@
 
 1. [✓] Install React with Typescript
 2. [✓] Configure ESLint + Typescript
-3. [𝒙] Setup Jest, Testing Library, JSDom
+3. [✓] Setup Jest, Testing Library, JSDom
 4. [𝒙] Setup React Router Dom
 
 ## 1. Install Dependencies
@@ -22,13 +22,13 @@
 
 ## 2. Configure ESLint + Typescript
 
-__Initialize ESLint Initial Configuration:__
+### Initialize ESLint Initial Configuration:
 
 ```bash
 > npx eslint --init
 ```
 
-__Install AirBNB Style Guide Plugin:__
+### Install AirBNB Style Guide Plugin:
 
 ```bash
 # If you have npm 5+ installed on your machine, as the command will detect that you are using yarn and will act accordingly.
@@ -36,9 +36,9 @@ __Install AirBNB Style Guide Plugin:__
 > npx install-peerdeps --dev eslint-config-airbnb
 ```
 
-__Remove__ ```eslint:recommended``` __if exists.__
+**Remove ```eslint:recommended``` if exists.**
 
-__NOTE: If there are other plugins, don't remove them !__
+**NOTE: If there are other plugins, don't remove them !**
 
 ```json
 // FROM
@@ -48,13 +48,13 @@ __NOTE: If there are other plugins, don't remove them !__
 "extends": [],
 ```
 
-__Add both plugins to__ ```.eslintrc``` __configuration file:__
+**Add both plugins to ```.eslintrc``` configuration file:**
 
 ```json
 "extends": ["airbnb", "airbnb/hooks"]
 ```
 
-__Install Typescript Plugin:__
+### Install Typescript Plugin:
 
 ```bash
 # NPM
@@ -67,7 +67,7 @@ __Install Typescript Plugin:__
 > pnpm add -D eslint-config-airbnb-typescript
 ```
 
-__Add plugin to__ ```.eslintrc``` __configuration file:__
+** Add plugin to ```.eslintrc``` configuration file:**
 
 ```json
 "extends": [
@@ -76,7 +76,7 @@ __Add plugin to__ ```.eslintrc``` __configuration file:__
 ]
 ```
 
-__Add the following "eslintrc.cjs" path to include array in:__ ```tsconfig.json```
+**Add the following "eslintrc.cjs" path to include array in: ```tsconfig.json```**
 
 ```json
  "include": [
@@ -85,7 +85,7 @@ __Add the following "eslintrc.cjs" path to include array in:__ ```tsconfig.json`
 ],
 ```
 
-__Make sure to add Typescript configuration path to parser options:__
+**Make sure to add Typescript configuration path to parser options:**
 
 ```javascript
 parserOptions: {
@@ -94,13 +94,13 @@ parserOptions: {
 },
 ```
 
-[AirBnB Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb)
+**[AirBnB Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb)**
 
-[AirBnB Typescript Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb-typescript)
+**[AirBnB Typescript Plugin Documentation Page](https://www.npmjs.com/package/eslint-config-airbnb-typescript)**
 
 ## 3. Testing Suite
 
-__Install "Vitest"__
+**Install "Vitest"**
 
 ```bash
 # NPM
@@ -113,10 +113,10 @@ __Install "Vitest"__
 > pnpm add -D vitest
 ```
 
-[Vitest Documentation](https://vitest.dev/)
+**[Vitest Documentation](https://vitest.dev/)**
 
-__Remove all content from:__ ```vite.config.ts```
-__and paste the following code:__
+**Remove all content from: ```vite.config.ts```
+and paste the following code:**
 
 ```typescript
 /* eslint-disable import/no-extraneous-dependencies */
@@ -149,7 +149,7 @@ export default defineConfig({
 });
 ```
 
-__We need to update:__ ```tsconfig.json``` again:
+**We need to update: ```tsconfig.json``` again:**
 
 ```json
 "include": [
@@ -159,14 +159,56 @@ __We need to update:__ ```tsconfig.json``` again:
 ],
 ```
 
-__Create Setup Tests File__
+**Create Setup Tests File**
 
 ```bash
 # Run in a terminal window
 > touch ./src/setupTests.ts
 ```
 
-## Run development mode
+### Install React Testing Library
+
+```bash
+# NPM
+> NPM install --dev @testing-library/react
+
+# YARN
+> yarn add -D @testing-library/react
+
+# PNPM
+> pnpm add -D @testing-library/react
+```
+
+### Install Jest Dom Library
+
+```bash
+# NPM
+> NPM install --dev @testing-library/jest-dom
+
+# YARN
+> yarn add -D @testing-library/jest-dom
+
+# PNPM
+> pnpm add -D @testing-library/jest-dom
+```
+
+### Add Configuration to ```.src/setupTests.ts```
+
+```typescript
+/* eslint-disable import/no-extraneous-dependencies */
+import * as matchers from '@testing-library/jest-dom/matchers';
+import { expect } from 'vitest';
+
+expect.extend(matchers);
+```
+
+**[Testing Library Documentation](https://testing-library.com/)**
+
+**[Jest Dom Documentation](https://testing-library.com/docs/ecosystem-jest-dom/)**
+
+## Available Scripts
+
+### Run development mode
 
 ```bash
 # NPM
@@ -179,7 +221,7 @@ __Create Setup Tests File__
 > pnpm dev
 ```
 
-## Build project
+### Build project
 
 ```bash
 # NPM
@@ -192,7 +234,7 @@ __Create Setup Tests File__
 > pnpm build
 ```
 
-## Preview project
+### Preview project
 
 __Starts a server production mode.__
 
