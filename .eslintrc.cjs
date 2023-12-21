@@ -38,5 +38,6 @@ module.exports = {
     'react/function-component-definition': 'off',
     'arrow-body-style': 'off',
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 };

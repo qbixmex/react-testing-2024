@@ -152,6 +152,14 @@ export default defineConfig({
 **We need to update: ```tsconfig.json``` again:**
 
 ```json
+"compilerOptions": [
+  // ... other configuration options
+  "types": [
+    // other types ...
+    "node", // <- Not Necesary in React, but yo can add it just in case.
+    "@testing-library/jest-dom",
+  ],
+],
 "include": [
   "src",
   ".eslintrc.cjs",
@@ -200,6 +208,40 @@ import * as matchers from '@testing-library/jest-dom/matchers';
 import { expect } from 'vitest';
 
 expect.extend(matchers);
+```
+
+### Update test script
+
+**NOTE: Probably is going to ask you to install a new dependency jsdom just confirm "yes" !**
+
+```json
+"test": "vitest",
+```
+
+### Run Test Script
+
+```bash
+# NPM
+npm test
+
+# YARN
+yarn test
+
+# PNPM
+pnpm test
+```
+
+**Run in watch mode**
+
+```bash
+# NPM
+npm test --watch
+
+# YARN
+yarn test --watch
+
+# PNPM
+pnpm test --watch
 ```
 
 **[Testing Library Documentation](https://testing-library.com/)**
