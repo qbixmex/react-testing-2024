@@ -41,5 +41,6 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
+    'arrow-parens': 'off',
   },
 };
