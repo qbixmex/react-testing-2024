@@ -1,17 +1,13 @@
 import {
-  BrowserRouter, Routes, Route, Link,
+  BrowserRouter, Routes, Route,
 } from 'react-router-dom';
 import { HomePage, AboutPage, NotFoundPage } from './pages';
+import { Navigation } from './components';
 
 export const App = () => {
   return (
     <>
-      <nav>
-        <ul style={{ display: 'flex', gap: '10px' }}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
-      </nav>
+      <Navigation />
       <Routes>
         <Route index path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
