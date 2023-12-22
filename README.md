@@ -67,7 +67,7 @@
 > pnpm add -D eslint-config-airbnb-typescript
 ```
 
-** Add plugin to ```.eslintrc``` configuration file:**
+**Add plugin to ```.eslintrc``` configuration file:**
 
 ```json
 "extends": [
@@ -291,17 +291,4 @@ __IMPORTANT: You must build before run this script.__
 
 # PNPM
 > pnpm preview
-```
-
-## Run Tests
-
-```bash
-# NPM
-> npm test
-
-# YARN
-> yarn test
-
-# PNPM
-> pnpm test
 ```
