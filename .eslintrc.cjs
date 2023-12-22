@@ -39,5 +39,6 @@ module.exports = {
     'arrow-body-style': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

@@ -1,11 +1,32 @@
-const App = () => {
+import {
+  BrowserRouter, Routes, Route, Link,
+} from 'react-router-dom';
+import { HomePage, AboutPage, NotFoundPage } from './pages';
+
+export const App = () => {
   return (
     <>
-      <h1>Hello World</h1>
-      <h2>Sub-Heading Text</h2>
-      <p id="paragraph">Lorem ipsum</p>
+      <nav>
+        <ul style={{ display: 'flex', gap: '10px' }}>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 };
 
-export default App;
+const WrappedApp = () => {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+};
+
+export default WrappedApp;
