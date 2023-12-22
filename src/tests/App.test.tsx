@@ -1,32 +1,44 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { describe, test, expect } from 'vitest';
-import App from '../App';
+import { App } from '../App';
 
 describe('Tests on <App /> component', () => {
-  test('Should contains HTML Elements', () => {
-    // * Arrange
-    const { debug, container } = render(<App />);
+  test('Should render Home Page', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const navbar = container.querySelector('nav');
     const heading = container.querySelector('h1');
-    const text1 = container.querySelector('#paragraph');
 
-    debug();
+    expect(navbar).toBeInTheDocument();
+    expect(heading?.textContent).toBe('Home Page');
+  });
 
-    // ? Query by role.
-    const subHeading = screen.getByRole('heading', {
-      level: 2,
-      name: /sub-heading text/i,
-    });
+  test('Should render About Page', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/about']}>
+        <App />
+      </MemoryRouter>,
+    );
 
-    // ? Query by text.
-    const text2 = screen.getByText(/lorem ipsum/i);
+    const heading = container.querySelector('h1');
 
-    // ? Act
-    // ? User interactions like click, submit, etc.
+    expect(heading?.textContent).toBe('About Page');
+  });
 
-    // * Assert
-    expect(heading?.textContent).toBe('Hello World');
-    expect(subHeading).toBeInTheDocument();
-    expect(text1?.textContent).toBe('Lorem ipsum');
-    expect(text2).toHaveTextContent('Lorem ipsum');
+  test('Should render Not Found Page', () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={['/products/123']}>
+        <App />
+      </MemoryRouter>,
+    );
+
+    const heading = container.querySelector('h1');
+
+    expect(heading?.textContent).toBe('Not Found Page');
   });
 });
