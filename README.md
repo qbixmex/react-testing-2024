@@ -5,7 +5,7 @@
 1. [✓] Install React with Typescript
 2. [✓] Configure ESLint + Typescript
 3. [✓] Setup Jest, Testing Library, JSDom
-4. [𝒙] Setup React Router Dom
+4. [✓] Setup React Router Dom
 
 ## 1. Install Dependencies
 
