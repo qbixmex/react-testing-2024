@@ -157,7 +157,7 @@ export default defineConfig({
   "types": [
     // other types ...
     "node", // <- Not Necesary in React, but yo can add it just in case.
-    "@testing-library/jest-dom",
+    "@testing-library/jest-dom", // <-- Add this new line
   ],
 ],
 "include": [
