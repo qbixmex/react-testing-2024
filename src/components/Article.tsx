@@ -16,6 +16,10 @@ const Article: FC<Props> = ({
       <hgroup>
         <h1>{ heading }</h1>
         <h2>{ subHeading }</h2>
+        <p>
+          $&nbsp;
+          <span id="price">5.75</span>
+        </p>
       </hgroup>
       <main data-testid="main">{children}</main>
     </article>

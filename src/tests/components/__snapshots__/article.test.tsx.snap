@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tests on <Article /> component > Should match with snapshot 1`] = `
+<div>
+  <article>
+    <hgroup>
+      <h1>
+        Test Heading
+      </h1>
+      <h2>
+        Test Subheading
+      </h2>
+      <p>
+        $ 
+        <span
+          id="price"
+        >
+          5.75
+        </span>
+      </p>
+    </hgroup>
+    <main
+      data-testid="main"
+    >
+      Test Content
+    </main>
+  </article>
+</div>
+`;
