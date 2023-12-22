@@ -15,3 +15,16 @@ export const getActiveUser = (username: string) => {
     username,
   };
 };
+
+export const getArray = () => {
+  return [
+    crypto.randomUUID(),
+    'John',
+    52,
+    true,
+    {
+      ok: true,
+      message: 'Well Done',
+    },
+  ];
+};

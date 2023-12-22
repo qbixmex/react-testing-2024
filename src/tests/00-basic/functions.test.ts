@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'vitest';
-import { getGreeting, getUser, getActiveUser } from '../../helpers';
+import {
+  getGreeting, getUser, getActiveUser, getArray,
+} from '../../helpers';
 
 describe('Test on basic functions', () => {
   test('Should return a greeting with provided name', () => {
@@ -39,5 +41,28 @@ describe('Test on basic functions', () => {
 
     // ? Assert
     expect(user).toEqual(testUser);
+  });
+
+  test.only('Should return an array', () => {
+    // ? Arrange
+    const testCase = {
+      name: 'John',
+      age: 52,
+      active: true,
+      response: {
+        ok: true,
+        message: 'Well Done',
+      },
+    };
+
+    // ? Act
+    const [uid, name, age, active, response] = getArray();
+
+    // ? Assert
+    expect(uid).toEqual(expect.any(String));
+    expect(name).toBe(testCase.name);
+    expect(age).toBe(testCase.age);
+    expect(active).toBe(testCase.active);
+    expect(response).toEqual(testCase.response);
   });
 });
