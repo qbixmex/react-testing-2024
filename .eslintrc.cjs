@@ -43,5 +43,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'arrow-parens': 'off',
     'react/require-default-props': 'off',
+    'import/no-cycle': 'off',
   },
 };
