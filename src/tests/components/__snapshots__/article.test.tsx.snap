@@ -4,16 +4,22 @@ exports[`Tests on <Article /> component > Should match with snapshot 1`] = `
 <div>
   <article>
     <hgroup>
-      <h1>
+      <h1
+        data-testid="heading"
+      >
         Test Heading
       </h1>
-      <h2>
+      <h2
+        data-testid="subheading"
+      >
         Test Subheading
       </h2>
-      <p>
+      <p
+        data-testid="price"
+      >
         $ 
         <span
-          id="price"
+          id="price-value"
         >
           32.55
         </span>

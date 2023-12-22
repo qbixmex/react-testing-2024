@@ -16,14 +16,16 @@ const Article: FC<Props> = ({
   return (
     <article>
       <hgroup>
-        <h1>{ heading }</h1>
-        <h2>{ subHeading }</h2>
-        <p>
+        <h1 data-testid="heading">{ heading }</h1>
+        <h2 data-testid="subheading">{ subHeading }</h2>
+        <p data-testid="price">
           $&nbsp;
-          <span id="price">{price}</span>
+          <span id="price-value">{price}</span>
         </p>
       </hgroup>
-      <main data-testid="main">{children}</main>
+      <main data-testid="main">
+        {children}
+      </main>
     </article>
   );
 };

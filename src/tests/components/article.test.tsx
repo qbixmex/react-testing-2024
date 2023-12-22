@@ -1,17 +1,17 @@
 import { describe, expect, test } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import Article from '../../components/Article';
+import { render } from '@testing-library/react';
+import { Article } from '../../components';
 
 describe('Tests on <Article /> component', () => {
   test('Should render with default props', () => {
-    render(
+    const { getByRole, getByText } = render(
       <Article>Lorem ipsum asimet exelsious deu</Article>,
     );
 
-    const heading = screen.getByRole('heading', { level: 1 });
-    const subHeading = screen.getByRole('heading', { level: 2 });
-    const text = screen.getByText(/lorem ipsum/i);
-    const price = screen.getByText('0');
+    const heading = getByRole('heading', { level: 1 });
+    const subHeading = getByRole('heading', { level: 2 });
+    const text = getByText(/lorem ipsum/i);
+    const price = getByText('0');
 
     expect(heading).toBeInTheDocument();
     expect(subHeading).toBeInTheDocument();
@@ -27,7 +27,7 @@ describe('Tests on <Article /> component', () => {
     const text3 = 'Test Content';
     const price = 7.95;
 
-    render(
+    const { getByRole, getByTestId } = render(
       <Article
         heading={text1}
         subHeading={text2}
@@ -37,9 +37,9 @@ describe('Tests on <Article /> component', () => {
       </Article>,
     );
 
-    const heading = screen.getByRole('heading', { level: 1 });
-    const subHeading = screen.getByRole('heading', { level: 2 });
-    const main = screen.getByTestId('main');
+    const heading = getByRole('heading', { level: 1 });
+    const subHeading = getByRole('heading', { level: 2 });
+    const main = getByTestId('main');
 
     expect(heading).toHaveTextContent(text1);
     expect(subHeading).toHaveTextContent(text2);
@@ -65,13 +65,13 @@ describe('Tests on <Article /> component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('Should contain an h2', () => {
+  test('Should contain several html tags', () => {
     const text1 = 'Test Heading';
     const text2 = 'Test Subheading';
     const text3 = 'Test Content';
     const price = 25.95;
 
-    const { container } = render(
+    const { container, getByTestId } = render(
       <Article
         heading={text1}
         subHeading={text2}
@@ -81,16 +81,17 @@ describe('Tests on <Article /> component', () => {
       </Article>,
     );
 
-    const h1 = container.querySelector('h1')?.textContent?.trim() as string;
-    const h2 = container.querySelector('h2')?.textContent?.trim() as string;
-    const paragraph = container.querySelector('p')?.innerHTML?.trim() as string;
-    const p = container.querySelector('#price')?.textContent?.trim() as string;
+    const heading = getByTestId('heading')?.textContent?.trim() as string;
+    const subheading = getByTestId('subheading')?.textContent?.trim() as string;
+    const paragraph = getByTestId('price')?.innerHTML?.trim() as string;
+    const p = container.querySelector('#price-value')?.textContent?.trim() as string;
 
-    expect(h1).toBe(text1);
-    expect(h2).toBe(text2);
+    expect(heading).toBe(text1);
+    expect(subheading).toBe(text2);
     expect(Number(p)).toBe(price);
     expect(paragraph).toContain('$');
     expect(paragraph).toContain(price);
-    expect(paragraph).toBe(`$&nbsp;<span id="price">${price}</span>`);
+    expect(paragraph).toBe(`$&nbsp;<span id="price-value">${price}</span>`);
+    expect(getByTestId('main')).toBeInTheDocument();
   });
 });
