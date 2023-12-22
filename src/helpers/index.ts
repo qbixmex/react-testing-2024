@@ -1,1 +1,1 @@
-export { default as getGreeting } from './template-string';
+export { getGreeting, getUser, getActiveUser } from './functions';
