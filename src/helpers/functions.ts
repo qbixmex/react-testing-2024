@@ -1,4 +1,4 @@
-import { heroes } from '../data/heroes';
+import { Hero, heroes } from '../data/heroes';
 
 export const getGreeting = (name: string) => {
   return `Hello ${name}!`;
@@ -34,6 +34,19 @@ export const getArray = () => {
 export const getHeroById = (id: number) => {
   const result = heroes.find(hero => hero.id === id);
   return !result ? null : result;
+};
+
+export const getHeroByIdAsync = (id: number) => {
+  return new Promise<Hero>((resolve, reject) => {
+    setTimeout(() => {
+      const result = heroes.find(hero => hero.id === id);
+      if (result) {
+        resolve(result);
+      } else {
+        reject(new Error(`Hero with "${id}" not found !`));
+      }
+    }, 500);
+  });
 };
 
 export const getHeroesByStudio = (studio: string) => {
