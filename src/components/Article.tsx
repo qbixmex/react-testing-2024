@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Counter } from '.';
 
 type Props = {
   heading?: string;
@@ -25,6 +26,7 @@ const Article: FC<Props> = ({
       </hgroup>
       <main data-testid="main">
         {children}
+        <Counter initialValue={0} />
       </main>
     </article>
   );
