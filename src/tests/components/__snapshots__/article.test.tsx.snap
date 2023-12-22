@@ -15,7 +15,7 @@ exports[`Tests on <Article /> component > Should match with snapshot 1`] = `
         <span
           id="price"
         >
-          5.75
+          32.55
         </span>
       </p>
     </hgroup>
