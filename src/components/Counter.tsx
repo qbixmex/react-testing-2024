@@ -1,24 +1,14 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { useCounter } from '../hooks';
 
 type Props = {
-  initialValue: number;
+  initialValue?: number;
 };
 
-const Counter: FC<Props> = ({ initialValue }) => {
-  const [counter, setCounter] = useState(initialValue);
-
-  const handleIncrement = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-  };
-
-  const handleReset = () => {
-    setCounter(initialValue);
-  };
-
-  const handleDecrement = () => {
-    if (counter === 0) return;
-    setCounter((prevCounter) => prevCounter - 1);
-  };
+const Counter: FC<Props> = ({ initialValue = 0 }) => {
+  const {
+    counter, handleIncrement, handleDecrement, handleReset,
+  } = useCounter({ initialCount: initialValue });
 
   return (
     <>
