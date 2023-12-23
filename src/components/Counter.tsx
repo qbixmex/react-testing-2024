@@ -22,7 +22,7 @@ const Counter: FC<Props> = ({ initialValue }) => {
 
   return (
     <>
-      <h1>Counter</h1>
+      <h2>Counter</h2>
       <p aria-label="counter">{ counter }</p>
 
       <button

@@ -4,14 +4,17 @@ import { Article } from '../../components';
 
 describe('Tests on <Article /> component', () => {
   test('Should render with default props', () => {
-    const { getByRole, getByText } = render(
+    const { getByRole, getByText, getByTestId } = render(
       <Article>Lorem ipsum asimet exelsious deu</Article>,
     );
 
     const heading = getByRole('heading', { level: 1 });
-    const subHeading = getByRole('heading', { level: 2 });
+    const subHeading = getByRole('heading', {
+      level: 2,
+      name: 'No Subheading',
+    });
     const text = getByText(/lorem ipsum/i);
-    const price = getByText('0');
+    const price = getByTestId('price');
 
     expect(heading).toBeInTheDocument();
     expect(subHeading).toBeInTheDocument();
@@ -38,7 +41,10 @@ describe('Tests on <Article /> component', () => {
     );
 
     const heading = getByRole('heading', { level: 1 });
-    const subHeading = getByRole('heading', { level: 2 });
+    const subHeading = getByRole('heading', {
+      level: 2,
+      name: text2,
+    });
     const main = getByTestId('main');
 
     expect(heading).toHaveTextContent(text1);
