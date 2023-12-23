@@ -29,6 +29,29 @@ exports[`Tests on <Article /> component > Should match with snapshot 1`] = `
       data-testid="main"
     >
       Test Content
+      <h2>
+        Counter
+      </h2>
+      <p
+        aria-label="counter"
+      >
+        0
+      </p>
+      <button
+        type="button"
+      >
+        increment
+      </button>
+      <button
+        type="button"
+      >
+        reset
+      </button>
+      <button
+        type="button"
+      >
+        decrement
+      </button>
     </main>
   </article>
 </div>
