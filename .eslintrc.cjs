@@ -44,5 +44,7 @@ module.exports = {
     'arrow-parens': 'off',
     'react/require-default-props': 'off',
     'import/no-cycle': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'react/button-has-type': 'off',
   },
 };

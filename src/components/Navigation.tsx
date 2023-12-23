@@ -5,12 +5,15 @@ const Navigation = () => {
   return (
     <nav>
       <section className={styles.list} role="list">
-        <p role="listitem">
+        <div role="listitem">
           <Link to="/">Home</Link>
-        </p>
-        <p role="listitem">
+        </div>
+        <div role="listitem">
           <Link to="/about">About</Link>
-        </p>
+        </div>
+        <div role="listitem">
+          <Link to="/login">Login</Link>
+        </div>
       </section>
     </nav>
   );
